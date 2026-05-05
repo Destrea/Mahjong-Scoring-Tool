@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://crhqeiiie228o"]
+
+[node name="TileButton_" type="TextureButton"]
+stretch_mode = 0

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dynfgxy1085cn"]
+
+[ext_resource type="Script" uid="uid://da3rsbsacoxru" path="res://Scripts/tile.gd" id="2_1f00m"]
+
+[node name="Tile" type="Sprite2D"]
+scale = Vector2(3, 3)
+script = ExtResource("2_1f00m")

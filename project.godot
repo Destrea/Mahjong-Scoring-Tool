@@ -8,8 +8,26 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="Riichi Rumble"
-config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/name="Mahjong Scoring Calculator"
+run/main_scene="res://Scenes/scoring_tool.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://Sprites/icon.svg"
+run/size/viewport_height=648
+run/size/viewport_width=1152
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

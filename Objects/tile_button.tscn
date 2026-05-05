@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dou42kfb1ej1f"]
+
+[ext_resource type="PackedScene" uid="uid://dynfgxy1085cn" path="res://Scenes/Tile.tscn" id="1_fhv3c"]
+
+[node name="TileButton" type="Button"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+
+[node name="Tile" parent="." instance=ExtResource("1_fhv3c")]
+show_behind_parent = true
+
+[editable path="Tile"]

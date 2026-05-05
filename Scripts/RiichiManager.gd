@@ -1,6 +1,7 @@
-@tool
-extends EditorScript
-
+#@tool
+extends Node
+#extends EditorScript
+class_name RiichiManager
 var wall = [] #Initialze the wall and hands as empty
 var hands = [['','','','','','','','','','','','',''],['','','','','','','','','','','','',''],['','','','','','','','','','','','',''],['','','','','','','','','','','','','']]
 
@@ -17,17 +18,19 @@ var honors = {"north" : "n",
 		  "white" : "y",
 		  "green" : "z"}
 
-var sortingKey = {"m": 0 , 
+@export var sortingKey = {"m": 0 , 
 				"p" : 1, 
 				"s" : 2,
-				"n" : 3,
-				"e" : 4,
-				"o" : 5,
-				"w" : 6,
+				"e" : 3,
+				"o" : 4,
+				"w" : 5,
+				"n" : 6,
 				"x" : 7,
 				"y" : 8,
 				"z" : 9}
 
+
+#var emojiKey = {"1m" : "🀇"}
 
 #Cycles through each suit, populating the wall with pieces 1-9, with a signifier tag for which suit it is
 # Then cycles through the honor suits and labels each tile 0-3 with its signifying suit tag
@@ -135,9 +138,13 @@ func sortHandNums(hand):
 func sortHands(hand,n):
 	var curHand
 	for i in range(0,len(hand)):
-		curHand = hands[i]
+		curHand = hand[i]
 		sortHandSuits(curHand,n)
 		sortHandNums(curHand)
+
+func sortOneHand(hand,n):
+	sortHandSuits(hand,n)
+	sortHandNums(hand)
 
 func printHands(hand):
 	for i in range(0,len(hand)):
@@ -156,13 +163,6 @@ func _run():
 	sortHands(hands,13)
 	printHands(hands)
 	
-	#TODO Implement a function for reading player hand and detecting yaku eligibility
-	#----------------------------------------------------------------------------------
-	# This includes detecting for sequences, triplets, kans.
-	# Additionally detecting for Tsumo draw tiles, ron tiles, ciitoitsu (7 pairs) and more
-	# First - create code to detect sequences
-	# Second - create code to detect pairs/triplets/kans
-	# Third - begin detecting for Yaku criteria based on what components are found
 	
 	
 	
@@ -173,6 +173,14 @@ func _run():
 	#sortHandSuits(testHand,13)
 #	sortHandNums(testHand,13)
 #	print("Sorted Hand: " + str(testHand))
+
+
+#for easy conversion of hand into Emoji, until I can create sprites for tiles
+func emojiConv(hand):
+	var convHand = ['','','','','','','','','','','','','','']
 	
+	#for item in hand:
+	#	if item = '1p'
 
-
+func _ready():
+	pass

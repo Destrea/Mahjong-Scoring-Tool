@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=3 uid="uid://wousut7n48px"]
+
+[ext_resource type="Script" path="res://Scripts/TestHandButton.gd" id="1_42aj0"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="2_ontug"]
+[ext_resource type="Script" path="res://Scripts/RiichiManager.gd" id="3_2h7q0"]
+[ext_resource type="Script" path="res://Scripts/YakuManager.gd" id="4_ywcbn"]
+[ext_resource type="Script" path="res://Scripts/TileDisplay.gd" id="5_1sj70"]
+[ext_resource type="PackedScene" uid="uid://dou42kfb1ej1f" path="res://Objects/tile_button.tscn" id="6_gi2pe"]
+
+[sub_resource type="Theme" id="Theme_jk5vj"]
+
+[node name="Debug Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Background Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1617, 0.49, 0.396982, 1)
+metadata/_edit_lock_ = true
+
+[node name="TestHandbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 87.0
+offset_right = 169.0
+offset_bottom = 142.0
+script = ExtResource("1_42aj0")
+
+[node name="Label" type="Label" parent="TestHandbutton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Display Test Hand"
+metadata/_edit_lock_ = true
+
+[node name="MainMenu Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 26.0
+offset_right = 169.0
+offset_bottom = 81.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="MainMenu Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="Player Hand" type="Panel" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 192.0
+offset_top = 536.0
+offset_right = 911.0
+offset_bottom = 600.0
+theme = SubResource("Theme_jk5vj")
+
+[node name="Label" type="Label" parent="Player Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.5
+anchor_right = 0.079
+anchor_bottom = 0.5
+offset_left = -45.801
+offset_top = -13.0
+offset_right = 45.199
+offset_bottom = 9.99997
+text = "Your Hand: "
+
+[node name="P3 Hand" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 448.0
+offset_right = 911.0
+offset_bottom = 508.0
+
+[node name="Label" type="Label" parent="P3 Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069
+anchor_top = 0.458
+anchor_right = 0.069
+anchor_bottom = 0.458
+offset_left = -35.611
+offset_top = -11.48
+offset_right = 35.389
+offset_bottom = 11.52
+text = "Player 3: "
+
+[node name="P2 Hand" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 384.0
+offset_right = 911.0
+offset_bottom = 444.0
+
+[node name="Label" type="Label" parent="P2 Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069
+anchor_top = 0.458
+anchor_right = 0.069
+anchor_bottom = 0.458
+offset_left = -35.611
+offset_top = -11.48
+offset_right = 35.389
+offset_bottom = 11.52
+text = "Player 2: "
+
+[node name="P1 Hand" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 320.0
+offset_right = 911.0
+offset_bottom = 380.0
+
+[node name="Label" type="Label" parent="P1 Hand"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069
+anchor_top = 0.458
+anchor_right = 0.069
+anchor_bottom = 0.458
+offset_left = -35.611
+offset_top = -11.48
+offset_right = 35.389
+offset_bottom = 11.52
+text = "Player 1: "
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_ontug")
+
+[node name="RiichiManager" type="Node" parent="GameManager"]
+script = ExtResource("3_2h7q0")
+
+[node name="YakuManager" type="Node" parent="GameManager"]
+script = ExtResource("4_ywcbn")
+
+[node name="Tiles" type="Node" parent="GameManager"]
+script = ExtResource("5_1sj70")
+
+[node name="TileButton" parent="." instance=ExtResource("6_gi2pe")]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 160.0
+offset_right = 496.0
+offset_bottom = 216.0
+
+[connection signal="pressed" from="TestHandbutton" to="GameManager" method="_on_test_handbutton_pressed"]
+[connection signal="pressed" from="TestHandbutton" to="GameManager/Tiles" method="_on_test_handbutton_pressed"]
+[connection signal="pressed" from="MainMenu Button" to="GameManager" method="_on_generate_button_pressed"]

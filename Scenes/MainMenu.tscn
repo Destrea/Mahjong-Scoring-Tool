@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdnqmfy320qt"]
+
+[ext_resource type="Script" uid="uid://curf4rr4hmyku" path="res://Scripts/main_menu.gd" id="1_8xhx8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8xhx8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.187, 0.4411, 0.55, 1)
+metadata/_edit_lock_ = true
+
+[node name="Debug Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 120.0
+text = "Enter Debug
+"
+
+[node name="Exit Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 256.0
+offset_bottom = 200.0
+text = "Exit
+"
+
+[node name="Scoring Tool" type="Button" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 64.0
+offset_right = 488.0
+offset_bottom = 120.0
+text = "Scoring Tool :)
+"
+
+[connection signal="pressed" from="Debug Button" to="." method="_on_debug_button_pressed"]
+[connection signal="pressed" from="Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Scoring Tool" to="." method="_on_scoring_tool_pressed"]

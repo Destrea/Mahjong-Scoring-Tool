@@ -1,0 +1,511 @@
+[gd_scene format=3 uid="uid://3mcj3bn5s7qa"]
+
+[ext_resource type="Script" uid="uid://cgyrb6rvaofmk" path="res://Scripts/scoring_tool.gd" id="1_v23kl"]
+[ext_resource type="Script" uid="uid://y7yvhqpc8a4w" path="res://Scripts/YakuManager.gd" id="2_x2dmp"]
+[ext_resource type="Script" uid="uid://bm76jd3q0d13o" path="res://Scripts/ScoringManager.gd" id="3_g5kvt"]
+[ext_resource type="Script" uid="uid://dyc46uddf6ced" path="res://Scripts/RiichiManager.gd" id="4_ce6dj"]
+[ext_resource type="SystemFont" uid="uid://cil6y4bqum5jg" path="res://BasicFont.tres" id="5_gbp0d"]
+[ext_resource type="Texture2D" uid="uid://dwd5nt8b648c8" path="res://Sprites/Tiles/Tiles28.png" id="5_wassb"]
+[ext_resource type="Texture2D" uid="uid://sb42ra53g3km" path="res://Sprites/Tiles/Tiles31.png" id="6_dpem2"]
+[ext_resource type="Texture2D" uid="uid://qrjc40sptbik" path="res://Sprites/Tiles/Tiles30.png" id="7_2qdmt"]
+[ext_resource type="Texture2D" uid="uid://by3f6786myon8" path="res://Sprites/Tiles/Tiles29.png" id="8_wrl0a"]
+
+[sub_resource type="Theme" id="Theme_j2hf7"]
+resource_local_to_scene = true
+default_font = ExtResource("5_gbp0d")
+
+[node name="ScoringTool" type="Node" unique_id=1509955618]
+script = ExtResource("1_v23kl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1247178771]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.225, 0.3, 0.29625, 1)
+metadata/_edit_lock_ = true
+
+[node name="YakuManager" type="Node" parent="." unique_id=314662822]
+script = ExtResource("2_x2dmp")
+
+[node name="ScoringManager" type="Node" parent="." unique_id=2143382856]
+script = ExtResource("3_g5kvt")
+
+[node name="RiichiManager" type="Node" parent="." unique_id=1373522195]
+script = ExtResource("4_ce6dj")
+
+[node name="Picker" type="Node2D" parent="." unique_id=1532023361]
+position = Vector2(512, 512)
+
+[node name="Picker Background" type="ColorRect" parent="Picker" unique_id=1799985712]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 944.0
+offset_bottom = 496.0
+color = Color(0.0147, 0.49, 0.387018, 0.380392)
+
+[node name="DisplayUI" type="Node2D" parent="." unique_id=2061063364]
+position = Vector2(536, 328)
+
+[node name="Debug Label" type="Label" parent="DisplayUI" unique_id=90602179]
+visible = false
+offset_left = -72.0
+offset_top = -144.0
+offset_right = 96.0
+offset_bottom = -88.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Hand Display:"
+
+[node name="ColorRect" type="ColorRect" parent="DisplayUI" unique_id=799857888]
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 1008.0
+offset_bottom = 72.0
+color = Color(0.289596, 0.652362, 1, 0.113725)
+
+[node name="Menu Options" type="GridContainer" parent="." unique_id=2120113599]
+layout_direction = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 200.0
+offset_bottom = 468.0
+scale = Vector2(2, 2)
+columns = 2
+
+[node name="Exit" type="Button" parent="Menu Options" unique_id=1773460560]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Exit"
+
+[node name="Clear" type="Button" parent="Menu Options" unique_id=1076315866]
+use_parent_material = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = SubResource("Theme_j2hf7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Clear"
+
+[node name="SettingsMenu" type="Node2D" parent="." unique_id=1485357531]
+position = Vector2(0, 192)
+
+[node name="Top Panel" type="Control" parent="." unique_id=1437342935]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_right = 1413.0
+offset_bottom = 112.0
+scale = Vector2(1.5, 1.5)
+mouse_filter = 2
+
+[node name="DoraIndLabel" type="Label" parent="Top Panel" unique_id=872405363]
+layout_mode = 0
+offset_left = 53.3333
+offset_top = 16.0
+offset_right = 218.333
+offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Number of Dora Tiles"
+
+[node name="DoraBox" type="OptionButton" parent="Top Panel/DoraIndLabel" unique_id=2112829848]
+layout_mode = 0
+offset_left = -21.3333
+offset_top = 26.6667
+offset_right = 191.667
+offset_bottom = 80.6667
+selected = 0
+item_count = 10
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+
+[node name="Calculate" type="Button" parent="Top Panel" unique_id=1762265630]
+custom_minimum_size = Vector2(245, 40)
+layout_mode = 0
+offset_left = -256.0
+offset_top = 282.667
+offset_right = -11.0
+offset_bottom = 322.667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = "Calculate"
+
+[node name="SeatWindLabel" type="Label" parent="Top Panel" unique_id=908981291]
+layout_mode = 0
+offset_left = 282.667
+offset_top = 16.0
+offset_right = 396.667
+offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Seat Wind:"
+horizontal_alignment = 1
+
+[node name="SeatWindOption" type="OptionButton" parent="Top Panel" unique_id=1933668082]
+layout_mode = 0
+offset_left = 277.333
+offset_top = 42.6667
+offset_right = 405.333
+offset_bottom = 95.6667
+tooltip_text = "Seat Wind"
+selected = 0
+item_count = 4
+popup/item_0/text = "East"
+popup/item_0/icon = ExtResource("5_wassb")
+popup/item_0/id = 0
+popup/item_1/text = "South"
+popup/item_1/icon = ExtResource("6_dpem2")
+popup/item_1/id = 1
+popup/item_2/text = "West"
+popup/item_2/icon = ExtResource("7_2qdmt")
+popup/item_2/id = 2
+popup/item_3/text = "North"
+popup/item_3/icon = ExtResource("8_wrl0a")
+popup/item_3/id = 3
+
+[node name="RoundWindLabel" type="Label" parent="Top Panel" unique_id=828697039]
+layout_mode = 0
+offset_left = 437.333
+offset_top = 16.0
+offset_right = 551.333
+offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Round Wind:"
+horizontal_alignment = 1
+
+[node name="RoundWindOption" type="OptionButton" parent="Top Panel" unique_id=820519993]
+layout_mode = 0
+offset_left = 426.667
+offset_top = 42.6667
+offset_right = 554.667
+offset_bottom = 95.6667
+tooltip_text = "Round Wind
+"
+selected = 0
+item_count = 4
+popup/item_0/text = "East"
+popup/item_0/icon = ExtResource("5_wassb")
+popup/item_0/id = 0
+popup/item_1/text = "South"
+popup/item_1/icon = ExtResource("6_dpem2")
+popup/item_1/id = 1
+popup/item_2/text = "West"
+popup/item_2/icon = ExtResource("7_2qdmt")
+popup/item_2/id = 2
+popup/item_3/text = "North"
+popup/item_3/icon = ExtResource("8_wrl0a")
+popup/item_3/id = 3
+
+[node name="Left Panel" type="Control" parent="." unique_id=585664156]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 264.0
+offset_right = 168.0
+offset_bottom = 304.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Renchan_Honba" type="Label" parent="Left Panel" unique_id=1335249997]
+layout_mode = 0
+offset_left = -74.6667
+offset_top = -58.6667
+offset_right = 60.3333
+offset_bottom = -23.6667
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 16
+text = "Renchan/Honba "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HonbaBox" type="OptionButton" parent="Left Panel/Renchan_Honba" unique_id=1809605726]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 5.0
+offset_right = 240.0
+offset_bottom = 37.0
+selected = 0
+item_count = 10
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+popup/item_5/text = "5"
+popup/item_5/id = 5
+popup/item_6/text = "6"
+popup/item_6/id = 6
+popup/item_7/text = "7"
+popup/item_7/id = 7
+popup/item_8/text = "8"
+popup/item_8/id = 8
+popup/item_9/text = "9"
+popup/item_9/id = 9
+
+[node name="SettingsLabel" type="Label" parent="Left Panel" unique_id=1805281315]
+layout_mode = 0
+offset_left = -21.3333
+offset_top = -112.0
+offset_right = 65.6667
+offset_bottom = -89.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+text = "Settings:"
+
+[node name="ScoringToggles" type="GridContainer" parent="Left Panel" unique_id=949673964]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.867
+anchor_top = -0.4
+anchor_right = -1.867
+anchor_bottom = -0.4
+offset_left = 0.0133362
+offset_top = -5.33333
+offset_right = 303.013
+offset_bottom = 150.667
+scale = Vector2(0.8, 0.8)
+columns = 2
+
+[node name="isOpen" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1370541406]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Open Hand"
+
+[node name="RiichiBox" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1274121918]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Riichi"
+
+[node name="Double Riichi" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1612116935]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Double Riichi"
+
+[node name="Ippatsu" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1670470585]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Ippatsu"
+
+[node name="Rinshan Kaihou" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1127221393]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Rinshan Kaihou"
+
+[node name="Tsumo" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=1193650226]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Tsumo"
+
+[node name="Haitei houtei" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=794784432]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Haitei/Houtei"
+
+[node name="Chankan" type="CheckBox" parent="Left Panel/ScoringToggles" unique_id=281281504]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 18
+text = " Chankan"
+
+[node name="TopColor" type="ColorRect" parent="." unique_id=1716198947]
+modulate = Color(0.00784314, 0.211765, 0.556863, 1)
+z_index = -1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 168.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.211765, 0.211765, 0.211765, 0.305882)
+metadata/_edit_lock_ = true
+
+[node name="LeftColor" type="ColorRect" parent="." unique_id=237014281]
+modulate = Color(0.00713861, 0.211517, 0.555638, 1)
+z_index = -1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 400.0
+grow_vertical = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+color = Color(0.21, 0.21, 0.21, 0.305882)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1200703602]
+offset_left = 224.0
+offset_top = 240.0
+offset_right = 232.0
+offset_bottom = 408.0
+color = Color(0, 0, 0, 0.145098)
+
+[node name="ScoreBox" type="ColorRect" parent="." unique_id=129840083]
+anchors_preset = -1
+anchor_bottom = 0.993
+offset_left = 16.0
+offset_top = 504.0
+offset_right = 384.0
+offset_bottom = -16.4401
+color = Color(1, 1, 1, 0.243137)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ScoreBox" unique_id=823900872]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 360.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 0.145098)
+
+[node name="HandTier" type="Label" parent="." unique_id=1195744217]
+offset_left = 168.0
+offset_top = 992.0
+offset_right = 363.0
+offset_bottom = 1042.0
+theme_override_colors/font_color = Color(0.88, 0.738907, 0.2288, 0.866667)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="HanLabel" type="Label" parent="." unique_id=413181828]
+offset_left = 280.0
+offset_top = 520.0
+offset_right = 376.0
+offset_bottom = 554.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 24
+text = "Han
+"
+
+[node name="YakuLabel" type="Label" parent="." unique_id=676777289]
+offset_left = 40.0
+offset_top = 520.0
+offset_right = 256.0
+offset_bottom = 554.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 22
+text = "Yaku"
+
+[node name="HanText" type="RichTextLabel" parent="." unique_id=635977608]
+offset_left = 272.0
+offset_top = 576.0
+offset_right = 376.0
+offset_bottom = 888.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_gbp0d")
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="YakuText" type="RichTextLabel" parent="." unique_id=783531972]
+offset_left = 32.0
+offset_top = 576.0
+offset_right = 256.0
+offset_bottom = 896.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_gbp0d")
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="Score" type="Label" parent="." unique_id=553451310]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -88.0
+offset_right = 187.0
+offset_bottom = -38.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_gbp0d")
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Menu Options/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Menu Options/Clear" to="." method="_on_clear_pressed"]
+[connection signal="item_selected" from="Top Panel/DoraIndLabel/DoraBox" to="." method="_on_dora_box_item_selected"]
+[connection signal="pressed" from="Top Panel/Calculate" to="ScoringManager" method="_on_calculate_pressed"]
+[connection signal="item_selected" from="Top Panel/SeatWindOption" to="." method="_on_seat_wind_option_item_selected"]
+[connection signal="item_selected" from="Top Panel/RoundWindOption" to="." method="_on_option_button_2_item_selected"]
+[connection signal="item_selected" from="Top Panel/RoundWindOption" to="." method="_on_round_wind_option_item_selected"]
+[connection signal="item_selected" from="Left Panel/Renchan_Honba/HonbaBox" to="." method="_on_honba_box_item_selected"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/isOpen" to="." method="_on_is_open_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/RiichiBox" to="." method="_on_riichi_box_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Double Riichi" to="." method="_on_double_riichi_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Ippatsu" to="." method="_on_ippatsu_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Rinshan Kaihou" to="." method="_on_rinshan_kaihou_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Tsumo" to="." method="_on_tsumo_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Haitei houtei" to="." method="_on_haitei_houtei_toggled"]
+[connection signal="toggled" from="Left Panel/ScoringToggles/Chankan" to="." method="_on_chankan_toggled"]
